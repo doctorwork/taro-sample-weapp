@@ -4,7 +4,6 @@ import Index from "./pages/index";
 import "./app.less";
 
 report({
-  domain: "http://webmonitor.developer.doctorwork.com/api/v1/wx/report/wx",
   appId: "wxcf2979fb96ee5a39"
 });
 
