@@ -1,58 +1,70 @@
-import Taro, { Component } from '@tarojs/taro'
-import { View, Text } from '@tarojs/components'
-import { AtButton } from 'taro-ui'
+import Taro, { Component } from "@tarojs/taro";
+import { View, Button } from "@tarojs/components";
 
-import './index.scss'
+import "./index.less";
 
 export default class Index extends Component {
-
   config = {
-    navigationBarTitleText: '首页',
+    navigationBarTitleText: "首页",
     usingComponents: {
-      'tab': '../../components/tab/tab'
+      tab: "../../components/tab/tab"
     }
-  }
+  };
 
-  gotoWxParse () {
+  gotoWxParse() {
     Taro.navigateTo({
-      url: '/pages/wxParse/wxParse'
-    })
+      url: "/pages/wxParse/wxParse"
+    });
   }
 
-  gotoEcharts () {
+  componentDidShow() {
+    // 获取数据
+    Taro.request({ url: "https://jsonplaceholder.typicode.com/todos/1" }).then(
+      console.log
+    );
+
+    error();
+  }
+
+  gotoEcharts() {
     Taro.navigateTo({
-      url: '/pages/echarts/echarts'
-    })
+      url: "/pages/echarts/echarts"
+    });
   }
 
-  gotoNative () {
+  gotoNative() {
     Taro.navigateTo({
-      url: '/pages/native/native'
-    })
+      url: "/pages/native/native"
+    });
   }
 
-  tabEvent (e) {
-    console.log(e)
+  tabEvent(e) {
+    console.log(e);
   }
 
-  render () {
+  render() {
     return (
-      <View className='index'>
-        <tab onMyevent={this.tabEvent} myProperty='This is tab' />
-        <View className='title'>与小程序原生融合的各种示例</View>
-        <View className='main'>
-          <View className='wrapper'>
-            <AtButton type='primary' onClick={this.gotoWxParse}>wxParse 示例</AtButton>
+      <View className="index">
+        <tab onMyevent={this.tabEvent} myProperty="This is tab" />
+        <View className="title">与小程序原生融合的各种示例</View>
+        <View className="main">
+          <View className="wrapper">
+            <Button type="primary" onClick={this.gotoWxParse}>
+              wxParse 示例
+            </Button>
           </View>
-          <View className='wrapper'>
-            <AtButton type='primary' onClick={this.gotoEcharts}>echarts-for-weixin 示例</AtButton>
+          <View className="wrapper">
+            <Button type="primary" onClick={this.gotoEcharts}>
+              echarts-for-weixin 示例
+            </Button>
           </View>
-          <View className='wrapper'>
-            <AtButton type='primary' onClick={this.gotoNative}>混写原生页面示例</AtButton>
+          <View className="wrapper">
+            <Button type="primary" onClick={this.gotoNative}>
+              混写原生页面示例
+            </Button>
           </View>
         </View>
       </View>
-    )
+    );
   }
 }
-

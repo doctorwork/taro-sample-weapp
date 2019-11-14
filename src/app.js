@@ -1,38 +1,34 @@
-import Taro, { Component } from '@tarojs/taro'
-import Index from './pages/index'
+import Taro, { Component } from "@tarojs/taro";
+import report from "@doctorwork/wx-report-sdk";
+import Index from "./pages/index";
+import "./app.less";
 
-import './app.scss'
+report({
+  domain: "http://webmonitor.developer.doctorwork.com/api/v1/wx/report/wx",
+  appId: "wxcf2979fb96ee5a39"
+});
 
 class App extends Component {
-
   config = {
     pages: [
-      'pages/index/index',
-      'pages/wxParse/wxParse',
-      'pages/echarts/echarts',
-      'pages/native/native'
+      "pages/index/index",
+      "pages/wxParse/wxParse",
+      "pages/echarts/echarts",
+      "pages/native/native"
     ],
     window: {
-      backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
-      navigationBarTextStyle: 'black'
+      backgroundTextStyle: "light",
+      navigationBarBackgroundColor: "#fff",
+      navigationBarTitleText: "WeChat",
+      navigationBarTextStyle: "black"
     }
-  }
+  };
 
-  componentDidMount () {}
+  componentCatchError() {}
 
-  componentDidShow () {}
-
-  componentDidHide () {}
-
-  componentCatchError () {}
-
-  render () {
-    return (
-      <Index />
-    )
+  render() {
+    return <Index />;
   }
 }
 
-Taro.render(<App />, document.getElementById('app'))
+Taro.render(<App />, document.getElementById("app"));

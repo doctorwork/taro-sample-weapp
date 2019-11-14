@@ -4,9 +4,9 @@
 
 Taro 与小程序原生融合的示例项目，包括：
 
-* wxParse 示例
-* echarts-for-weixin 示例
-* 混写原生页面示例
+- wxParse 示例
+- echarts-for-weixin 示例
+- 混写原生页面示例
 
 ## 安装与运行
 
@@ -21,4 +21,22 @@ $ yarn global add @tarojs/cli
 
 ```bash
 $ taro build --type weapp --watch
+```
+
+## 前端监控接入
+
+安装小程序 SDK
+
+```
+npm i @doctorwork/wx-report-sdk
+```
+
+全局接入统计
+
+```
+import report from "@doctorwork/wx-report-sdk";
+
+report({
+  appId: "wxcf2979fb96ee5a39"
+});
 ```
