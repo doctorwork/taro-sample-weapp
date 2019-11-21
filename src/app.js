@@ -4,9 +4,9 @@ import Index from "./pages/index";
 import "./app.less";
 
 report({
-    // domain 为开发配置，正式环境省略即可
-    domain: "http://webmonitor.developer.doctorwork.com/api/v1/wx/report/wx"
-    appId: "wxcf2979fb96ee5a39"
+  // domain 为开发配置，正式环境省略即可
+  domain: "http://webmonitor.developer.doctorwork.com/api/v1/wx/report/wx",
+  appId: "wxcf2979fb96ee5a39"
 });
 
 class App extends Component {
